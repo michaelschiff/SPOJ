@@ -54,7 +54,7 @@ def primes_in_range(start, end, sieve):
     res = [n for n in range(start, end+1)]
     for prime in sieve:
         if prime <= math.sqrt(end):
-            first_multiple = res[0] if res[0] % prime is 0 else (((res[0]+prime)/prime) * prime)
+            first_multiple = start if start % prime is 0 else (((start+prime)/prime) * prime)
             first_index = first_multiple-start if first_multiple > prime else first_multiple + prime - start
             multiples = res[first_index:end+1-start:prime]
             res[first_index:end+1-start:prime] = [0]*len(multiples)
